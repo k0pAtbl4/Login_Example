@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot Endpoints</title>
+    <script>
+        function getUserInfo() {
+            var userId = document.getElementById("userId").value;
+            if (userId) {
+                window.location.href = "/get-user/" + userId;
+            } else {
+                alert("Please enter a valid user ID.");
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>Spring Boot Endpoints</h1>
+
+<!-- Home Page -->
+<a href="/home">Home Page</a><br><br>
+
+<!-- User Profile -->
+<a href="/profile">User Profile</a><br><br>
+
+<!-- Add User -->
+<a href="/add-user">Add User</a><br><br>
+
+<!-- Get User Info by ID (Only for Admins) -->
+<label for="userId">Enter User ID:</label>
+<input type="text" id="userId" placeholder="Enter User ID"><br><br>
+<button onclick="getUserInfo()">Get User Info</button><br><br>
+
+<!-- Logout Button -->
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+
+</body>
+</html>
+
