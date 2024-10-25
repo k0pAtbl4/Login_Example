@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.User;
-import com.example.demo.entity.UserDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -34,9 +33,14 @@ public interface UserController {
     public String addUser(@ModelAttribute User user, Model model);
 
     //Get user information by id (only for admins)
-    @GetMapping("/get-user/{id}")
+    /*@GetMapping("/get-user/{id}")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public String getUser(@PathVariable Integer id, Model model) throws Exception;
+    public String getUserById(@PathVariable Integer id, Model model) throws Exception;*/
+
+    //Get user information by name
+    @GetMapping("/get-user/{name}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+    public String getUserByName(@PathVariable String name, Model model) throws Exception;
 
     //login
     @GetMapping("/login")

@@ -11,6 +11,4 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Integer> {
     @Query(value = "select e from User e where e.name =?1")
     Optional<User> findByName(String name);
-
-    
 }

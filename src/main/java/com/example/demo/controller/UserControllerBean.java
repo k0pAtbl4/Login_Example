@@ -48,10 +48,26 @@ public class UserControllerBean implements UserController {
         return "user-success"; // Перенаправление на страницу успеха
     }
 
-    @Override
-    public String getUser(@PathVariable Integer id, Model model) throws Exception {
+    /*@Override
+    public String getUserById(@PathVariable Integer id, Model model) throws Exception {
         try {
             UserDto user = userMapper.toDto(userService.findById(id)); // Поиск пользователя по ID
+            if (user == null) {
+                throw new RuntimeException("User not found");
+            }
+            model.addAttribute("user", user); // Передаем объект user в модель
+            return "user-profile"; // Название шаблона для отображения
+        } catch (Exception e) {
+            log.error("Error while retrieving user info: ", e);
+            model.addAttribute("error", "User not found");
+            return "error"; // Возвращаем страницу с ошибкой, если не найден
+        }
+    }*/
+
+    @Override
+    public String getUserByName(@PathVariable String name, Model model) throws Exception {
+        try {
+            UserDto user = userMapper.toDto(userService.findByName(name)); // Поиск пользователя по ID
             if (user == null) {
                 throw new RuntimeException("User not found");
             }
