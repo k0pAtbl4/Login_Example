@@ -20,7 +20,7 @@ public class UserControllerBean implements UserController {
 
     @Override
     public String unloginned() {
-        return "unloginned";
+        return "signIn-signUp";
     }
 
     @Override
@@ -30,7 +30,7 @@ public class UserControllerBean implements UserController {
 
     @Override
     public String profilePage() {
-        return "profile";
+        return "my-profile";
     }
 
     // Return the page with form to add a user
@@ -45,7 +45,7 @@ public class UserControllerBean implements UserController {
     @Override
     public String addUser(@ModelAttribute User user, Model model) {
         userService.create(user);  // Сохраняем пользователя
-        return "user-success"; // Перенаправление на страницу успеха
+        return "user-added"; // Перенаправление на страницу успеха
     }
 
     /*@Override
@@ -81,6 +81,6 @@ public class UserControllerBean implements UserController {
     }
 
     public String login() {
-        return "login"; // Вернуть шаблон login.html
+        return "login-page"; // Вернуть шаблон login-page.html
     }
 }
