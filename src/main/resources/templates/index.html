@@ -6,11 +6,11 @@
     <title>Spring Boot Endpoints</title>
     <script>
         function getUserInfo() {
-            var userId = document.getElementById("userId").value;
-            if (userId) {
-                window.location.href = "/get-user/" + userId;
+            var userName = document.getElementById("userName").value;
+            if (userName) {
+                window.location.href = "/get-user/" + userName;
             } else {
-                alert("Please enter a valid user ID.");
+                alert("Please enter a valid user name.");
             }
         }
     </script>
@@ -24,12 +24,9 @@
 <!-- User Profile -->
 <a href="/profile">User Profile</a><br><br>
 
-<!-- Add User -->
-<a href="/add-user">Add User</a><br><br>
-
-<!-- Get User Info by ID (Only for Admins) -->
-<label for="userId">Enter User ID:</label>
-<input type="text" id="userId" placeholder="Enter User ID"><br><br>
+<!-- Get User Info by Name -->
+<label for="userName">Enter Username:</label>
+<input type="text" id="userName" placeholder="Enter User Name"><br><br>
 <button onclick="getUserInfo()">Get User Info</button><br><br>
 
 <!-- Logout Button -->
